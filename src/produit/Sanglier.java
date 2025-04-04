@@ -6,7 +6,7 @@ public class Sanglier extends Produit{
 	private Gaulois chasseur;
 	private int poids;
 	
-	public Sanglier(Gaulois chasseur, int poids) {
+	public Sanglier(int poids, Gaulois chasseur) {
 		super.nom = "sanglier";
 		super.unite = Unite.KILOGRAMME;
 		this.chasseur = chasseur;
