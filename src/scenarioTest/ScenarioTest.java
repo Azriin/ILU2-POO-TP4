@@ -1,5 +1,6 @@
 package scenarioTest;
 
+import personnages.Gaulois;
 import produit.Poisson;
 import produit.Produit;
 import produit.Sanglier;
@@ -35,11 +36,38 @@ public class ScenarioTest {
 	}
 
 	public static void main(String[] args) {
-		IEtal<Produit>[] marche = new IEtal[3];
-		IEtal<Sanglier> etalSanglier = new Etal<>();
-		IEtal<Poisson> etalPoisson = new Etal<>();
-		marche[0] = etalSanglier;
-		marche[1] = etalPoisson;
+		Gaulois ordralfabetix = new Gaulois("Ordralfabetix", 9);
+		Gaulois obelix = new Gaulois("Obelix", 20);
+		Gaulois asterix= new Gaulois("Asterix", 6);
+		Sanglier sanglier1 = new Sanglier(2000, obelix);
+		Sanglier sanglier2 = new Sanglier(1500, obelix);
+		Sanglier sanglier3 = new Sanglier(1000, asterix);
+		Sanglier sanglier4 = new Sanglier(500, asterix);
+		Sanglier[] sangliersObelix = {sanglier1, sanglier2};
+		Sanglier[] sangliersAsterix = {sanglier3, sanglier4};
+		Poisson poisson1 = new Poisson("lundi");
+		Poisson[] poissons = {poisson1};
+		IEtal[] marche = new IEtal[3];
+		Etal<Sanglier> etalSanglier1 = new Etal<>();
+		Etal<Sanglier> etalSanglier2 = new Etal<>();
+		Etal<Poisson> etalPoisson1 = new Etal<>();
+		marche[0] = etalSanglier1;
+		marche[1] = etalSanglier2;
+		marche[2] = etalPoisson1;
+		etalSanglier1.installerVendeur(obelix, sangliersObelix, 8);
+		etalSanglier2.installerVendeur(asterix, sangliersAsterix, 10);
+		etalPoisson1.installerVendeur(ordralfabetix, poissons, 7);
+		
+		System.out.println(etalSanglier2.etatEtal());
+		System.out.println(etalSanglier1.etatEtal());		
+		System.out.println(etalPoisson1.etatEtal());
+		
+		System.out.println("A l'etal n°1, j'achete 2 sanglier et je paye " + etalSanglier2.acheterProduit(2) + " sous.");
+		System.out.println("A l'etal n°2, j'achete 1 sanglier et je paye " + etalSanglier1.acheterProduit(1) + " sous.");
+		
+		System.out.println(etalSanglier2.etatEtal());		
+		System.out.println(etalSanglier1.etatEtal());
+		System.out.println(etalPoisson1.etatEtal());
 	}
 
 }

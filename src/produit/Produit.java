@@ -1,6 +1,6 @@
 package produit;
 
-public abstract class Produit {
+public abstract class Produit implements lProduit{
 	protected String nom;
 	protected Unite unite;
 	
@@ -8,5 +8,6 @@ public abstract class Produit {
 		return nom;
 	}
 	
-	public abstract void decrireProduit();
+	public abstract String decrireProduit();
+	public abstract int calculerPrix(int prix);
 }

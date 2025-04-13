@@ -1,6 +1,6 @@
 package produit;
 
-public class Poisson extends Produit{
+public class Poisson extends Produit implements lProduit{
 	private String datePeche;
 	
 	public Poisson(String datePeche) {
@@ -10,7 +10,12 @@ public class Poisson extends Produit{
 	}
 	
 	@Override
-	public void decrireProduit() {
-		System.out.println("Poisson peches " + datePeche);	
+	public String decrireProduit() {
+		return "Poisson peches " + datePeche;	
+	}
+
+	@Override
+	public int calculerPrix(int prix) {
+		return prix;
 	}
 }
